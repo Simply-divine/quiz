@@ -74,4 +74,13 @@
       render json: @arr.sort_by! { |hsh| hsh[:score] }.reverse!
     end
   end
+
+  private
+
+  def require_user
+    if !logged_in?
+      flash[:danger] = "You have not logged in"
+      redirect_to login_path
+    end
+  end
 end
