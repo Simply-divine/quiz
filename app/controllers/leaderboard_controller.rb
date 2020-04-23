@@ -1,5 +1,5 @@
 ﻿class LeaderboardController < ApplicationController
-  before_action :authenticate_user!
+  before_action :require_user
 
   def index
     @genres = Genre.all

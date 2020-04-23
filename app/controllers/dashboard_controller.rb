@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :authenticate_user!
+  before_action :require_user
   def index
     @sum = 0
     current_user.user_quizs.each do |qt|
