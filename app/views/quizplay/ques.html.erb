@@ -5,6 +5,13 @@
       <div class="container-fluid">
         <h2><%= @question.question.html_safe %></h2>
         <br>
+        <% if @question.avatar.attached? %>
+          <% if @question.avatar.variable? %>
+            <%= link_to(image_tag(@question.avatar.variant(resize: "200x200")), rails_blob_path(@question.avatar, disposition: "avatar"))%>
+          <% else %>
+            <%= link_to "Download file", rails_blob_path(@question.avatar, disposition: "avatar") %>
+          <% end %>
+        <% end %>
         <div class="form-group">
           <div class="checkbox">
             <label>
