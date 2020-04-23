@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :edit, :update]
-	before_action :require_user, only: [:edit, :update, :destroy]
-	before_action :require_same_user, only: [:edit, :update, :destroy]
-	before_action :require_admin, only: [:destroy]
+	before_action :require_same_user, only: [:edit, :update, :destroy, :show]
+	before_action :require_admin, only: [:destroy, :index]
 	
 	def new
 		@user = User.new
@@ -13,8 +12,9 @@ class UsersController < ApplicationController
 		if @user.save
 			session[:user_id] = @user.id
 			flash[:success] = "User created successfully"
-			redirect_to user_path(@user)
+			redirect_to root_path
 		else
+			flash[:warning] = "Something went wrong, plz try again!"
 			render 'new'
 		end
 	end
@@ -44,12 +44,12 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.destroy
 		flash[:danger] = "User and all articles created by users have been destroyed"
-		redirect_to users_path 
+		redirect_to root_path
 	end
 
 	private
 		def user_params
-			params.require(:user).permit(:name,:password,:email)
+			params.require(:user).permit(:name, :email, :password)
 		end	
 
 		def set_user
