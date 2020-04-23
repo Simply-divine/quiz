@@ -9,4 +9,14 @@ class DashboardController < ApplicationController
     current_user.save
     @quizes = current_user.user_quizs
   end
+
+  private
+
+  def require_user
+    if !logged_in?
+      flash[:danger] = "You have not logged in"
+      redirect_to login_path
+    end
+  end
+
 end
