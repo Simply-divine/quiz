@@ -1,5 +1,5 @@
 <br>
-<p> your score is :  <%= current_user.cqscore %></hp>
+<p> Your score is :  <%= current_user.cqscore %></p>
 <%= form_for :arr, controller: "takequiz", action: "next", method: "post", class: "form-horizontal" do |form| %>
     <div class="well bs-component">
       <div class="container-fluid">
@@ -35,11 +35,11 @@
         </div>
       </div>
     </div>
-    <center>
+    <div style="text-align: center;">
       <% if @last %>
           <%= form.submit "Submit", :name => nil, type: "submit", class: "btn btn-lg btn-success btn" %>
       <% else %>
           <%= form.submit "Next", :name => nil, type: "submit", class: "btn btn-lg btn-primary btn" %>
       <% end %>
-    </center>
+    </div>
 <% end %>
