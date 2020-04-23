@@ -1,14 +1,21 @@
 class QuizplayController < ApplicationController
 
-	def index
- 	if current_user.presentquizid==0
- 		@questions = Question.all
- 		@genres = Genre.all
- 		@subgenres = Subgenre.all 
- 	else
- 		redirect_to quizplay_continue_path
- 	end
- end
+	
+
+def index
+	if !logged_in? 
+		flash[:danger] = "You are not logged in! Please Log in first"
+		redirect_to root_path
+	else
+		if current_user.presentquizid==0
+			@questions = Question.all
+			@genres = Genre.all
+			@subgenres = Subgenre.all 
+		else
+			redirect_to quizplay_continue_path
+		end
+	end
+end
 
  def continue
  	if current_user.presentquizid==0
