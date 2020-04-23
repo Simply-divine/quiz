@@ -10,35 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_025810) do
+ActiveRecord::Schema.define(version: 2020_04_23_045727) do
 
-  create_table "options", force: :cascade do |t|
-    t.string "answer"
-    t.string "letter"
-    t.integer "question_id"
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_options_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
+    t.integer "subgenre_id"
     t.string "question"
-    t.boolean "active"
-    t.string "answer"
-    t.string "letter"
+    t.string "option1"
+    t.string "option2"
+    t.string "option3"
+    t.string "option4"
+    t.boolean "check1"
+    t.boolean "check2"
+    t.boolean "check3"
+    t.boolean "check4"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["subgenre_id"], name: "index_questions_on_subgenre_id"
   end
 
-  create_table "useranswers", force: :cascade do |t|
-    t.string "letter"
-    t.string "answer"
-    t.integer "question_id"
-    t.integer "user_id"
+  create_table "subgenres", force: :cascade do |t|
+    t.string "name"
+    t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_useranswers_on_question_id"
-    t.index ["user_id"], name: "index_useranswers_on_user_id"
+    t.index ["genre_id"], name: "index_subgenres_on_genre_id"
+  end
+
+  create_table "user_quizzes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "subgenre_id"
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subgenre_id"], name: "index_user_quizzes_on_subgenre_id"
+    t.index ["user_id"], name: "index_user_quizzes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,7 +59,10 @@ ActiveRecord::Schema.define(version: 2020_04_23_025810) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "questions", "subgenres"
+  add_foreign_key "subgenres", "genres"
+  add_foreign_key "user_quizzes", "subgenres"
+  add_foreign_key "user_quizzes", "users"
 end

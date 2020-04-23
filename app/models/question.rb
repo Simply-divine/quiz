@@ -1,7 +1,3 @@
 class Question < ApplicationRecord
-
-  has_many :option, dependent: :destroy
-
-  has_many :useranswer, dependent: :destroy
-
+  belongs_to :subgenre
 end
