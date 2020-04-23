@@ -1,8 +1,6 @@
 class QuizplayController < ApplicationController
 	before_action :require_user
 
-	
-
 def index
 	if !logged_in? 
 		flash[:danger] = "You are not logged in! Please Log in first"

@@ -59,18 +59,18 @@ ActiveRecord::Schema.define(version: 2020_04_23_053130) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
-    t.integer "cqscore"
-    t.integer "score"
-    t.integer "presentquizid"
-    t.integer "presentquizqueid"
-    t.string "reset_password_token"
+    t.integer "cqscore", default: 0
+    t.integer "score", default: 0
+    t.integer "presentquizid", default: 0
+    t.integer "presentquizqueid", default: 0
+    t.string "reset_password_token", default: "", null: false
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count"
+    t.integer "sign_in_count", default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
+    t.string "current_sign_in_ip", default: "", null: false
+    t.string "last_sign_in_ip", default: "", null: false
   end
 
   add_foreign_key "questions", "subgenres"
