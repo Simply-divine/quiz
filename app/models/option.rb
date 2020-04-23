@@ -1,5 +1,5 @@
 class Option < ApplicationRecord
 
-  belongs_to :question, inverse_of: option
+  belongs_to :question
 
 end

@@ -6,6 +6,6 @@ class User < ApplicationRecord
 						length: {maximum: 105},
 						uniqueness: {case_sensitive: false},
 						format: { with: VALID_EMAIL_REGEX }
-  has_many :useranswer, dependent: :destroy, inverse_of: :user
+  has_many :useranswer, dependent: :destroy
 	has_secure_password
 end
