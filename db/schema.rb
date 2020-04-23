@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_04_23_025810) do
     t.integer "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_options_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -30,17 +29,6 @@ ActiveRecord::Schema.define(version: 2020_04_23_025810) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_answers", force: :cascade do |t|
-    t.string "letter"
-    t.string "answer"
-    t.integer "question_id"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_user_answers_on_question_id"
-    t.index ["user_id"], name: "index_user_answers_on_user_id"
-  end
-
   create_table "useranswers", force: :cascade do |t|
     t.string "letter"
     t.string "answer"
@@ -48,8 +36,6 @@ ActiveRecord::Schema.define(version: 2020_04_23_025810) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_useranswers_on_question_id"
-    t.index ["user_id"], name: "index_useranswers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,7 +45,6 @@ ActiveRecord::Schema.define(version: 2020_04_23_025810) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
