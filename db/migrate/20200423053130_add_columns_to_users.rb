@@ -14,15 +14,5 @@ class AddColumnsToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :last_sign_in_at, :datetime
     add_column :users, :current_sign_in_ip , :string
     add_column :users, :last_sign_in_ip , :string
-    #Ex:- add_column("admin_users", "username", :string, :limit =>25, :after => "email")
-
-    #Ex:- add_column("admin_users", "username", :string, :limit =>25, :after => "email")
-    #Ex:- add_column("admin_users", "username", :string, :limit =>25, :after => "email")
-      
-    
-    #Ex:- add_column("admin_users", "username", :string, :limit =>25, :after => "email")
-    #Ex:- add_column("admin_users", "username", :string, :limit =>25, :after => "email")
-    #Ex:- add_column("admin_users", "username", :string, :limit =>25, :after => "email")
-
   end
 end
