@@ -35,7 +35,7 @@
         </ul>
         
         <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
+          <% if user_signed_in? %>
               <% if current_user.admin %>
                   <li><%= link_to "Admin Page", rails_admin_path, style: "font-size: larger", :method => :get %></li>
               <%  end %>
