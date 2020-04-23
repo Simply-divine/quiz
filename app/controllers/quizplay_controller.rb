@@ -32,7 +32,9 @@ end
 			current_user.save
 			redirect_to quizplay_path
 		else
-			redirect_to quiz_play_by_ques_path(current_user.presentquizid, current_user.presentquizqueid)
+			flash[:success] = current_user.presentquizid+ " " + current_user.presentquizqueid
+			redirect_to root_path
+			# redirect_to quiz_pla:y_by_ques_path(current_user.presentquizid, current_user.presentquizqueid)
 		end
 	 end
 
@@ -93,7 +95,7 @@ end
 
 
 		if (@question.check2) and (@chkr==1)
-			if params[:arr]['2'].to_i == 0
+			if params[:arr]['2'].to_i == 0	
 				@chkr=0
 			end
 		end
