@@ -1,6 +1,6 @@
 class QuizplayController < ApplicationController
- before_action :authenticate_user!
- def index
+
+	def index
  	if current_user.presentquizid==0
  		@questions = Question.all
  		@genres = Genre.all

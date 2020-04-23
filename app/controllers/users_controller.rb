@@ -19,17 +19,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def written
-		@questions = Question.find_by(active: true)
-		@options = Option.all
-		@empty_answers = []
-
-		@questions.all.each do
-			@empty_answers << Useranswer.new
-		end
-
-	end
-
 	def show
 		
 	end
