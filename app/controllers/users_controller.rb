@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		if @user.update
+		if @user.update(user_params)
 			flash[:success] = "User updated successfully"
 			redirect_to user_path(@user)
 		else

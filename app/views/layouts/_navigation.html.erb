@@ -13,12 +13,8 @@
     
       <% if logged_in? %>
         <ul class = "navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Your Profile <%="admin" if current_user.admin?%>
-        </a>
-        </li>
-        <li>
+				<li> <%= link_to 'Edit your details', edit_user_path(current_user), class: "nav-link" %></li>
+				<li>
         <%= link_to 'Logout', logout_path,method: :delete, class: "btn btn-outline-danger my-2 my-sm-0" %>
         </li>
         </ul>

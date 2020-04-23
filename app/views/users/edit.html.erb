@@ -1,0 +1,22 @@
+<%= render 'shared/errors', obj: @user %>
+<h1 align = "center"> Edit your details </h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 mx-auto">
+			<%= form_for(@user, :html => {class: "myform form",role: "form"}) do |f| %>
+				<div class="form-group">
+					<%= f.text_field :name,class: "form-control my-input", placeholder: "Your Handle" %>
+				</div>
+				<div class="form-group">
+					<%= f.email_field :email,class: "form-control my-input", placeholder: "Email" %>
+				</div>
+				<div class="form-group">
+					<%= f.password_field :password,class: "form-control my-input", placeholder: "Password" %>
+				</div>
+				<div class="text-center ">
+					<%= f.submit(@user.new_record? ? " Create Your Account" : "Update your account", class: " btn btn-block send-button tx-tfm") %>
+				</div>
+			<% end%>
+		</div>
+	</div>
+</div>
