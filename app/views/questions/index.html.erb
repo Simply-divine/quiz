@@ -1,0 +1,50 @@
+<% @questions.each do |ques| %>
+  <div class="well bs-component">
+    <div class="container-fluid">
+      <h2><%= ques.question.html_safe %></h2>
+      <br>
+      <% if ques.avatar.attached? %>
+        <% if ques.avatar.variable? %>
+          <%= link_to(image_tag(ques.avatar.variant(resize: "200x200")), rails_blob_path(ques.avatar, disposition: "avatar"))%>
+        <% else %>
+          <%= link_to "Download file", rails_blob_path(ques.avatar, disposition: "avatar") %>
+        <% end %>
+      <% end %>
+      <div class="form-group">
+        <div class="checkbox">
+          <label> Subgenre Id
+            <%= ques.subgenre_id %>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label> <%= ques.option1 %>
+            <%= ques.check1 %>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label><%= ques.option2 %>
+            <%= ques.check2 %>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label><%= ques.option3 %>
+            <%= ques.check3 %>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label> <%= ques.option4 %>
+            <%= ques.check4 %>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
