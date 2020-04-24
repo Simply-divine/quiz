@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <head>
-    <title>iQuiz</title>
+    <title>techiq</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -39,7 +39,7 @@
               <% if current_user.admin %>
                   <li><%= link_to "Admin Page", users_path, style: "font-size: larger", :method => :get %></li>
               <%  end %>
-              <li style="color:black"><%= link_to "Sign Out", logout_path, style: "font-size: larger", :method => :delete %></li>
+              <li style="color:black"><%= link_to "Sign Out", logout_path, method: :delete, style: "font-size: larger"  %></li>
           <% else %>
               <li><%= link_to "Sign In", login_path, style: "font-size: larger", :method => :get %></li>
               <li><%= link_to "Sign Up", signup_path, :method => :get %></li>
