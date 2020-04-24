@@ -1,0 +1,44 @@
+<div class="well bs-component">
+  <div class="container-fluid">
+    <h2><%= @question.question.html_safe %></h2>
+    <br>
+    <% if @question.avatar.attached? %>
+      <image src = "<%=(url_for(@question.avatar)) %>"></image>
+    <% end %>
+    <div class="form-group">
+      <div class="checkbox">
+        <label> Subgenre Id
+          <%= @question.subgenre_id %>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label> <%= @question.option1 %>
+          <%= @question.check1 %>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label><%= @question.option2 %>
+          <%= @question.check2 %>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label><%= @question.option3 %>
+          <%= @question.check3 %>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label> <%= @question.option4 %>
+          <%= @question.check4 %>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
