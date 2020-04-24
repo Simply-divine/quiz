@@ -11,6 +11,7 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
       t.boolean :check2
       t.boolean :check3
       t.boolean :check4
+      t.string :image
       t.timestamps
     end
   end

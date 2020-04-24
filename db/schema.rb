@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_122356) do
+ActiveRecord::Schema.define(version: 2020_04_23_144526) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_122356) do
     t.boolean "check2"
     t.boolean "check3"
     t.boolean "check4"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subgenre_id"], name: "index_questions_on_subgenre_id"

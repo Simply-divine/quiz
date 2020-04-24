@@ -6,10 +6,13 @@
 				<h1 class="card-title center justify-content-center" ><%= user.name %></h1>
 				<p class="card-text  center justify-content-center"><small class = "text-muted"><%= user.name %>'s email:</small>
 				<small class = "text-muted"><%= user.email %></small></p>
+        <p class="card-text  center justify-content-center"><small class = "text-muted"><%= user.name %>'s score:</small>
+          <small class = "text-muted"><%= user.score %></small></p>
         <% if logged_in? and current_user.admin? %>
         <p class = "card-text center"><%= link_to "Delete this user ", user_path(user), method: :delete,
                  data: {confirm: "Are you sure you want to delete user?"} %></p>
         <% end %>
+
       </div>
     </div>
   </div> 
